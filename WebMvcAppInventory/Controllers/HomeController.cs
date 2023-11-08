@@ -22,9 +22,9 @@ public class HomeController : Controller
         return View("Index", _stockService.GetProductList());
     }
 
-    public IActionResult AddNewProduct()
+    public IActionResult Edit()
     {
-        return View("AddProduct");
+        return View("Edit", _stockService.GetProductList());
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -47,10 +47,10 @@ public class HomeController : Controller
 
         if (!result.Success)
         {
-            return View("../Shared/Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View("Error", result);
         }
 
-        return View("Index", _stockService.GetProductList());
+        return View("Edit", _stockService.GetProductList());
     }
 
     [HttpPost]
@@ -60,10 +60,10 @@ public class HomeController : Controller
 
         if (!result.Success)
         {
-            return View("../Shared/Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View("Error", result);
         }
 
-        return View("Index", _stockService.GetProductList());
+        return View("Edit", _stockService.GetProductList());
     }
 
     [HttpPost]
@@ -76,7 +76,7 @@ public class HomeController : Controller
             return View("../Shared/Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        return View("Index", _stockService.GetProductList());
+        return View("Edit", _stockService.GetProductList());
     }
 
     [HttpPost]
@@ -89,6 +89,6 @@ public class HomeController : Controller
             return View("../Shared/Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        return View("Index", _stockService.GetProductList());
+        return View("Edit", _stockService.GetProductList());
     }
 }

@@ -1,0 +1,12 @@
+﻿
+.product-action-button {
+    min-width: 10%;
+    padding: 0.3rem;
+}
+
+.product-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+}

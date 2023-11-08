@@ -1,4 +1,4 @@
-﻿@model ProductModel
+﻿
 @{
     ViewData["Title"] = "Add new product";
 }
@@ -10,29 +10,29 @@
 <div class="text-center">
     @using (Html.BeginForm("AddProduct", "Home", FormMethod.Post))
     {
-        <div class="container" style="margin-block: 50px;">
-            <div style="margin-block: 1%;">
+        <div class="container" style="margin-block: 5%;">
+            <div class="add-product-fields">
                 <label for="id">Code:</label>
                 <input type="text" id="id" name="id" placeholder="1000"/>
             </div>
 
-            <div style="margin-block: 1%;">
+            <div class="add-product-fields">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="text" />
             </div>
 
-            <div style="margin-block: 1%;">
+            <div class="add-product-fields">
                 <label for="price">Price:</label>
                 <input type="text" id="price" name="price" placeholder="0,0" />
             </div>
 
-            <div style="margin-block: 1%;">
+            <div class="add-product-fields">
                 <label for="count">Count:</label>
                 <input type="text" id="count" name="count" placeholder="0" />
             </div>
 
-            <div style="margin-block: 3%;">
-                <input type="submit" value="Add" style="width: 10%;" />
+            <div class="add-product-fields">
+                <input type="submit" value="Add" class="product-action-button" />
             </div>
         </div>
     }
