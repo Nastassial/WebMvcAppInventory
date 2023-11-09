@@ -33,11 +33,12 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
+    [HttpPost]
     public IActionResult ClearStock()
     {
         _stockService.Clear();
 
-        return View("Index", _stockService.GetProductList());
+        return RedirectToAction("Index");
     }
 
     [HttpPost]
@@ -50,7 +51,7 @@ public class HomeController : Controller
             return View("Error", result);
         }
 
-        return View("Edit", _stockService.GetProductList());
+        return RedirectToAction("Edit");
     }
 
     [HttpPost]
@@ -63,7 +64,7 @@ public class HomeController : Controller
             return View("Error", result);
         }
 
-        return View("Edit", _stockService.GetProductList());
+        return RedirectToAction("Edit");
     }
 
     [HttpPost]
@@ -76,7 +77,7 @@ public class HomeController : Controller
             return View("../Shared/Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        return View("Edit", _stockService.GetProductList());
+        return RedirectToAction("Edit");
     }
 
     [HttpPost]
@@ -89,6 +90,6 @@ public class HomeController : Controller
             return View("../Shared/Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        return View("Edit", _stockService.GetProductList());
+        return RedirectToAction("Edit");
     }
 }
