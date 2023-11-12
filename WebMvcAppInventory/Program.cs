@@ -1,5 +1,6 @@
 using WebMvcAppInventory.Services.Interfaces;
 using WebMvcAppInventory.Services;
+using WebMvcAppInventory.Middlewares.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,8 @@ builder.Services.AddSingleton<IStockService, StockService>();
 builder.Services.AddSingleton<IDataProvider>(new FileDataProvider("Data/inventoryData.json"));
 
 var app = builder.Build();
+
+app.UseGlobalErrorMiddleware();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

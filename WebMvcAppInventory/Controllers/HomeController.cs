@@ -27,10 +27,9 @@ public class HomeController : Controller
         return View("Edit", _stockService.GetProductList());
     }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        return View("Error", new ResultModel { Success = false, Message = "Something went wrong" });
     }
 
     [HttpPost]
